@@ -28,19 +28,25 @@ const int STRING_SIZE = 256;                      //The size of the String.
 //
 class String {
 public:
-            String        ();                     //Empty string
-            String        (char);                 //String('x')
-            String        (const char[]);         //String("abcd")
-    char&   operator[]    (int);                  //Accessor/Modifier
-    char    operator[]    (int)            const; //Accessor
-    int     capacity      ()               const; //Max chars that can be stored (not including null terminator)
-    int     length        ()               const; //Number of char in string
-    String  operator+     (const String&)  const; //Concatenation
+            String        ();                       //Empty string
+            String        (char);                   //String('x')
+            String        (const char[]);           //String("abcd")
+    char&   operator[]    (int);                    //Accessor/Modifier
+    char    operator[]    (int)            const;   //Accessor
+    int     capacity      ()               const;   //Max chars that can be stored (not including null terminator)
+    int     length        ()               const;   //Number of char in string
+    String  operator+     (const String&)  const;   //Concatenation
+    String& operator+=    (const String&);          //Concatenation and assignment
     bool    operator==    (const String&)  const;
     bool    operator<     (const String&)  const;
 
     friend  std::istream& operator>>(std::istream&, String&);
     friend  std::ostream& operator<<(std::ostream&, const String&);
+
+    //String utilities
+    String        substr(int, int);
+    int           findch(int, char);
+    int           findstr(int, const String&);
 
 private:
     char str[STRING_SIZE];
