@@ -10,86 +10,115 @@
 //===========================================================================
 int main ()
 {
+
+    //Tests with searched for char is present in string
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("X");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(0,'X');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "X");
+        assert(result == 0);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Waffle");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(0, 'e');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Waffle");
+        assert(result == 5);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Bacon and Eggs");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(5, 'n');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Bacon and Eggs");
+        assert(result == 7);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Jarod Graygo");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(0, 'd');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Jarod Graygo");
+        assert(result == 4);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Test for findch");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(0, ' ');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Test for findch");
+        assert(result == 4);
+    }
+
+    //Tests where the searched for char is not present in string
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("Waffles");
+
+        // TEST
+        int result = str.findch(0, 'F');
+
+        // VERIFY
+        assert(str    == "Waffles");
+        assert(result == -1);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Waffles");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findch(0, 'z');
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Waffles");
+        assert(result == -1);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("Waffles");
+
+        // TEST
+        int result = str.findch(3, 'W');
+
+        // VERIFY
+        assert(str    == "Waffles");
+        assert(result == -1);
     }
 
     // ADD ADDITIONAL TESTS AS NECESSARY
     
-    std::cout << "Done testing XXX." << std::endl;
+    std::cout << "Done testing finch." << std::endl;
 }
 
