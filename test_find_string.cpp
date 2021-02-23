@@ -10,86 +10,127 @@
 //===========================================================================
 int main ()
 {
+    //Tests where the string is present
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Waffle");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(0, "ffle");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Waffle");
+        assert(result == 2);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("X");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(0, "X");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "X");
+        assert(result == 0);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Jarod Graygo");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(3, "ray");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Jarod Graygo");
+        assert(result == 7);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("This is a test for findstr");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(0, "test");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "This is a test for findstr");
+        assert(result == 10);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Thisisanothertestforfindstr");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(0, "another");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Thisisanothertestforfindstr");
+        assert(result == 6);
+    }
+
+    //Tests where the string is not present or the function is checking past where it appears
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("This is a test for findstr");
+
+        // TEST
+        int result = str.findstr(0, "Is");
+
+        // VERIFY
+        assert(str    == "This is a test for findstr");
+        assert(result == -1);
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("This is a test for findstr");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        int result = str.findstr(6, "This");
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "This is a test for findstr");
+        assert(result == -1);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("This is a test for findstr");
+
+        // TEST
+        int result = str.findstr(0, "Waffle");
+
+        // VERIFY
+        assert(str    == "This is a test for findstr");
+        assert(result == -1);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("This is a test for findstr");
+
+        // TEST
+        int result = str.findstr(0, "tests");
+
+        // VERIFY
+        assert(str    == "This is a test for findstr");
+        assert(result == -1);
     }
 
     // ADD ADDITIONAL TESTS AS NECESSARY
     
-    std::cout << "Done testing XXX." << std::endl;
+    std::cout << "Done testing findstr." << std::endl;
 }
 
