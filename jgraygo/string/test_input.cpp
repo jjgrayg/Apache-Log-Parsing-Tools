@@ -6,7 +6,8 @@
 
 #include "string.hpp"
 #include <cassert>
-#include <iostream> 
+#include <iostream>
+#include <limits>
 
 //===========================================================================
 int main ()
@@ -18,11 +19,15 @@ int main ()
         String  right('X');
 
         // TEST
-        result >> right;
+        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
-        assert(result == 'X');
+        assert(result == "X");
         assert(right  == 'X');
+
+        std::cin.ignore(result.capacity(), '\n');
     }
 
     {
@@ -32,11 +37,15 @@ int main ()
         String  right("Waffles");
 
         // TEST
-        result >> right;
+        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
         assert(result == "Waffles");
         assert(right  == "Waffles");
+
+        std::cin.ignore(result.capacity(), '\n');
     }
 
     {
@@ -46,11 +55,15 @@ int main ()
         String  right("Jarod Graygo");
 
         // TEST
-        result >> right;
+        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
         assert(result == "Jarod");
         assert(right  == "Jarod Graygo");
+
+        std::cin.ignore(result.capacity(), '\n');
     }
 
     {
@@ -60,25 +73,33 @@ int main ()
         String  right("This is a test for the input operator.");
 
         // TEST
-        result >> right;
+        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
         assert(result == "This");
         assert(right  == "This is a test for the input operator.");
+
+        std::cin.ignore(result.capacity(), '\n');
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("jb5xIxfFRjFyWpPLWlRO2d6OP4JVudd50EubHmlgpSWB0redD3");
+        String  right("Bacon and Eggs");
 
         // TEST
-        result >> right;
+        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
-        assert(result == "jb5xIxfFRjFyWpPLWlRO2d6OP4JVudd50EubHmlgpSWB0redD3");
-        assert(right  == "jb5xIxfFRjFyWpPLWlRO2d6OP4JVudd50EubHmlgpSWB0redD3");
+        assert(result == "Bacon");
+        assert(right  == "Bacon and Eggs");
+
+        std::cin.ignore(result.capacity(), '\n');
     }
 
     {
@@ -88,11 +109,15 @@ int main ()
         String  right("Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
 
         // TEST
-        result >> right;
+        std::cout << "Please copy this: " << right << std::endl << "On this line: ";
+        std::cin >> result;
+        std::cout << std::endl;
 
         // VERIFY
         assert(result == "Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
         assert(right  == "Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
+
+        std::cin.ignore(result.capacity(), '\n');
     }
     
 
