@@ -199,14 +199,18 @@ int String::findch(int pos, char ch)
 //Returns -1 if the string is not present
 int String::findstr(int pos, const String& string)
 {
+
+	bool isPresent = false;
+
 	for (int i = pos; i < STRING_SIZE; i++)
 	{
 		if (str[i] == string[0])
 		{
-			for (int j = i; j < string.length(); j++)
+			for (int j = 0; j < string.length(); j++)
 			{
-				if (str[i + j] != string[j]) break;
-				else return i;
+				if (str[i + j] != string[j]) isPresent = false;
+				else isPresent = true;
+				if (isPresent && j == (string.length() - 1)) return i;
 			}
 		}
 	}
