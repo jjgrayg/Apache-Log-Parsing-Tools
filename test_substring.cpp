@@ -13,83 +13,83 @@ int main ()
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("X");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(0, 0);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "X");
+        assert(result == "X");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Waffles");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(0, 2);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Waffles");
+        assert(result == "Waf");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Jarod Graygo");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(2, 8);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Jarod Graygo");
+        assert(result == "rod Gra");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("This is a test for substr");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(5,6);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "This is a test for substr");
+        assert(result == "is");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("Include this whole string");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(0, 24);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "Include this whole string");
+        assert(result == "Include this whole string");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str(X);
+        String  str("0123456789");
 
         // TEST
-        RESULT_TYPE result = str.OP();
+        String result = str.substr(1, 8);
 
         // VERIFY
-        assert(str    == X);
-        assert(result == X);
+        assert(str    == "0123456789");
+        assert(result == "12345678");
     }
 
     // ADD ADDITIONAL TESTS AS NECESSARY
     
-    std::cout << "Done testing XXX." << std::endl;
+    std::cout << "Done testing substr." << std::endl;
 }
 
