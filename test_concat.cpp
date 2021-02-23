@@ -14,96 +14,96 @@ int main ()
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left;
+        String  right;
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == '\0');
+        assert(left   == '\0');
+        assert(right  == '\0');
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left('A');
+        String  right('\0');
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == 'A');
+        assert(left   == 'A');
+        assert(right  == '\0');
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left('A');
+        String  right('A');
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == "AA");
+        assert(left   == 'A');
+        assert(right  == 'A');
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left("Waffle");
+        String  right("-Iron");
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == "Waffle-Iron");
+        assert(left   == "Waffle");
+        assert(right  == "-Iron");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left("Jarod");
+        String  right(" Graygo");
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == "Jarod Graygo");
+        assert(left   == "Jarod");
+        assert(right  == " Graygo");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+        String  left("T2O0mRRXuZumw5fIrO9pZyKi9krICaSCdYvZddHCvdsBjO1iz6ymXiU32RaAHdbUo8k0A6tr8PgOd7wuUsJ8US5Hi8wrTGn7AK8S");
+        String  right("9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");
 
         // TEST
-        RESULT_TYPE result = (left OP right);
+        String result = (left + right);
 
         // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
+        assert(result == "T2O0mRRXuZumw5fIrO9pZyKi9krICaSCdYvZddHCvdsBjO1iz6ymXiU32RaAHdbUo8k0A6tr8PgOd7wuUsJ8US5Hi8wrTGn7AK8S9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");
+        assert(left   == "T2O0mRRXuZumw5fIrO9pZyKi9krICaSCdYvZddHCvdsBjO1iz6ymXiU32RaAHdbUo8k0A6tr8PgOd7wuUsJ8US5Hi8wrTGn7AK8S");
+        assert(right  == "9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");
     }
     
 
     // ADD ADDITIONAL TESTS AS NECESSARY
     
-    std::cout << "Done testing XXX." << std::endl;
+    std::cout << "Done testing concatenation." << std::endl;
 }
 
