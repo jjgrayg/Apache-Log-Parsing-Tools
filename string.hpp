@@ -14,6 +14,7 @@
 // You need to implement all of the methods and funcitons declared here.
 //
 
+//HPP FOR MILESTONE 1
 #ifndef CS23001_STRING_INTERFACE_HPP
 #define CS23001_STRING_INTERFACE_HPP
 
