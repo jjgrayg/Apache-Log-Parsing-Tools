@@ -1,6 +1,6 @@
 //  String class test program
 //
-//  Tests: XXX
+//  Tests: Substr member function
 //
 
 #include "string.hpp"
@@ -86,6 +86,46 @@ int main ()
         // VERIFY
         assert(str    == "0123456789");
         assert(result == "12345678");
+    }
+
+    //Out-of-bounds tests
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("0123456789");
+
+        // TEST
+        String result = str.substr(1, 10);
+
+        // VERIFY
+        assert(str    == "0123456789");
+        assert(result == '\0');
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("0123456789");
+
+        // TEST
+        String result = str.substr(8, 1);
+
+        // VERIFY
+        assert(str    == "0123456789");
+        assert(result == '\0');
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  str("0123456789");
+
+        // TEST
+        String result = str.substr(10, 12);
+
+        // VERIFY
+        assert(str    == "0123456789");
+        assert(result == '\0');
     }
 
     // ADD ADDITIONAL TESTS AS NECESSARY

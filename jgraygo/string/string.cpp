@@ -179,6 +179,9 @@ int String::length() const
 String String::substr(int start, int end)
 {
 	String result;
+	if (start > end) return result;
+	if (end > length()-1) return result;
+	if (start > length()-1) return result;
 	for (int i = start; i <= end; i++) result += str[i];
 	return result;
 }

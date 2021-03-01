@@ -45,9 +45,9 @@ public:
     friend  std::ostream& operator<<(std::ostream&, const String&);
 
     //String utilities
-    String        substr(int, int);
-    int           findch(int, char);
-    int           findstr(int, const String&);
+    String        substr  (int, int);
+    int           findch  (int, char);
+    int           findstr (int, const String&);
 
 private:
     char str[STRING_SIZE];

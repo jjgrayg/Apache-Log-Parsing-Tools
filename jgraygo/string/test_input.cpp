@@ -1,127 +1,176 @@
 //  String class test program
 //
-//  Name:  XXX
-//  Tests: XXX
+//  Name:  String
+//  Tests: Input operator
 //
 
 #include "string.hpp"
 #include <cassert>
 #include <iostream>
 #include <limits>
+#include <fstream>
 
 //===========================================================================
-int main ()
+int main()
 {
+
+    std::ifstream in("log_1_tiny.txt");
+    if (!in) {
+        std::cerr << "Could not open log_1_tiny.txt, exiting" << std::endl;
+        exit(1);
+    }
+
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right('X');
+        String  right("131.123.47.176");
 
         // TEST
-        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "X");
-        assert(right  == 'X');
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
 
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("Waffles");
+        String  right("-");
 
         // TEST
-        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "Waffles");
-        assert(right  == "Waffles");
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
 
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("Jarod Graygo");
+        String  right("-");
 
         // TEST
-        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "Jarod");
-        assert(right  == "Jarod Graygo");
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
 
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("This is a test for the input operator.");
+        String  right("[18/Sep/2002:12:05:25");
 
         // TEST
-        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "This");
-        assert(right  == "This is a test for the input operator.");
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
 
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("Bacon and Eggs");
+        String  right("-0400]");
 
         // TEST
-        std::cout << "Please type exactly the following on the next line: " << right << std::endl;
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "Bacon");
-        assert(right  == "Bacon and Eggs");
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
 
+    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
         String  result;
-        String  right("Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
+        String  right("\"GET");
 
         // TEST
-        std::cout << "Please copy this: " << right << std::endl << "On this line: ";
-        std::cin >> result;
-        std::cout << std::endl;
+        in >> result;
 
         // VERIFY
-        assert(result == "Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
-        assert(right  == "Pfr2A6NEVCjzZ0uJsAmPDBLJoqyZ8wTWiNuHs0cGtSeQUlNz0i2SzZqsoWepmfdLPofoShgYLYYTGaz2xNAdc9RUQAVjtkDdTb6dwghPzjuKt8IDXW9dhXdwiFX3QCWD23co2KOjwE2pm9iTFnqoUtKbvnY0keqL8uZvA4stx1EI0fYHQo9tqpM3NX2kmxBqDhlz02RrHrRDeFyDSHpwIZ0mFJ4mwSY1CDDuFamxUmgaFVJrSjjg2bsYqGVws7R");
-
-        std::cin.ignore(result.capacity(), '\n');
+        std::cout << result << std::endl;
+        assert(result == right);
     }
-    
+
+    if (!in.eof())
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("/~darci/");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    if (!in.eof())
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("HTTP/1.0\"");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    if (!in.eof())
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("200");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    if (!in.eof())
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("5625");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
 
     // ADD ADDITIONAL TESTS AS NECESSARY
-    
+
     std::cout << "Done testing input." << std::endl;
 }

@@ -1,6 +1,6 @@
 //  String class test program
 //
-//  Tests: XXX
+//  Tests: default constructor
 //
 
 #include "string.hpp"
