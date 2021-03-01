@@ -1,6 +1,6 @@
 //  String class test program
 //
-//  Tests: XXX
+//  Tests: Findstr member function
 //
 
 #include "string.hpp"

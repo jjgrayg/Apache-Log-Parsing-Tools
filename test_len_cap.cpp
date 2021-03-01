@@ -1,6 +1,6 @@
 //  String class test program
 //
-//  Tests: XXX
+//  Tests: length and capacity member functions
 //
 
 #include "string.hpp"

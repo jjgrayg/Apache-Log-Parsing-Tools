@@ -1,7 +1,7 @@
 //  String class test program
 //
-//  Name:  XXX
-//  Tests: XXX
+//  Name:  String
+//  Tests: Equals operator
 //
 
 #include "string.hpp"
