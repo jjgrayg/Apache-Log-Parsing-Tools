@@ -14,13 +14,12 @@
 int main()
 {
 
-    std::ifstream in("log_1_tiny.txt");
+    std::ifstream in("log_3_medium.txt");
     if (!in) {
-        std::cerr << "Could not open log_1_tiny.txt, exiting" << std::endl;
+        std::cerr << "Could not open log_3_medium.txt, exiting" << std::endl;
         exit(1);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -35,7 +34,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -50,7 +48,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -65,7 +62,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -80,7 +76,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -95,7 +90,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -110,7 +104,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -125,7 +118,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -140,7 +132,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -155,7 +146,6 @@ int main()
         assert(result == right);
     }
 
-    if (!in.eof())
     {
         //------------------------------------------------------
         // SETUP FIXTURE
@@ -170,7 +160,276 @@ int main()
         assert(result == right);
     }
 
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("131.123.47.176");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("-");
+
+        // TEST
+        in >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+    
+    in.close();
+
     // ADD ADDITIONAL TESTS AS NECESSARY
+    // FitnessGram Test
+
+    std::ifstream in2("string.txt");
+    if (!in) {
+        std::cerr << "Could not open string.txt, exiting" << std::endl;
+        exit(1);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("The");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("FitnessGram");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("Pacer");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("Test");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("is");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("a");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("multistage");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("aerobic");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("capacity");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("test");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("that");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+        String  right("progressively");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == right);
+    }
+
+    //Multiple assignment test
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  result;
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "gets");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "more");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "difficult");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "as");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "it");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "continues.");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "The");
+
+        // TEST
+        in2 >> result;
+
+        // VERIFY
+        std::cout << result << std::endl;
+        assert(result == "20");
+    }
+
 
     std::cout << "Done testing input." << std::endl;
 }

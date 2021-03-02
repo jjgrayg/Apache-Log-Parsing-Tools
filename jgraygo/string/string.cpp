@@ -38,8 +38,18 @@ String::String(const char x[]) : String()
 //Input operator overload
 std::istream& operator>>(std::istream& in, String& rhs)
 {
-	in >> rhs.str;
-	return in;
+
+	for (int i = 0; i < STRING_SIZE; i++) rhs.str[i] = 0;
+
+	if (!in.eof())
+	{
+		in >> rhs.str;
+		return in;
+	}
+	else
+	{
+		return in;
+	}
 }
 //Output operator overload
 std::ostream& operator<<(std::ostream& out, const String& rhs)
@@ -122,7 +132,11 @@ bool String::operator<(const String& rhs) const
 	int index = 0;
 
 	do {
-		if (str[index] < rhs[index])
+		if (str[index] > rhs[index])
+		{
+			break;
+		}
+		else if (str[index] < rhs[index])
 		{
 			return true;
 		}
@@ -165,7 +179,7 @@ bool operator!=(const String& lhs, const String& rhs) { return !(lhs == rhs); }
 //////////////////////////////////
 
 //Returns the capacity of String
-int String::capacity() const { return STRING_SIZE; }
+int String::capacity() const { return (STRING_SIZE - 1); }
 
 //Returns the number of characters in the string
 int String::length() const
@@ -179,10 +193,15 @@ int String::length() const
 String String::substr(int start, int end)
 {
 	String result;
+	int index = 0;
 	if (start > end) return result;
-	if (end > length()-1) return result;
-	if (start > length()-1) return result;
-	for (int i = start; i <= end; i++) result += str[i];
+	if (end >= length()) end = (length() - 1);
+	if (start >= length()) return result;
+	for (int i = start; i <= end; i++)
+	{
+		result.str[index] = str[i];
+		index++;
+	}
 	return result;
 }
 
