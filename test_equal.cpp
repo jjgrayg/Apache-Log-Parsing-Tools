@@ -30,6 +30,21 @@ int main ()
     {
         //------------------------------------------------------
         // SETUP FIXTURE
+        String  left("as");
+        String  right("as");
+
+        // TEST
+        bool result = (left == right);
+
+        // VERIFY
+        assert(result);
+        assert(left   == "as");
+        assert(right  == "as");
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
         String  left('X');
         String  right('X');
 

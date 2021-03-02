@@ -102,6 +102,21 @@ int main ()
         assert(left   == "2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ia");
         assert(right  == "2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ib");
     }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  left;
+        String  right('X');
+
+        // TEST
+        bool result = (!(right < left));
+
+        // VERIFY
+        assert(result);
+        assert(left   == '\0');
+        assert(right  == 'X');
+    }
     
     //Greater than tests
     {
@@ -187,6 +202,21 @@ int main ()
 
         // TEST
         bool result = (right > left);
+
+        // VERIFY
+        assert(result);
+        assert(left   == "2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ia");
+        assert(right  == "2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ib");
+    }
+
+    {
+        //------------------------------------------------------
+        // SETUP FIXTURE
+        String  left("2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ia");
+        String  right("2mo6jV6Osd0C4lOwwdHhTJ8YZdK6Ct5qBET3xFGj6x5R0ANOOgVHxjrS7qDYZzwr5hJloVsYUorOolMHKfuaIpzEMK0v4F5DRBlU6AZR5jOvBqwUilNAhceuSnTmaJQdPfLChHTXqTUmSmEyQ7S0VjS8BmbiJG5AnmT4JJ1kFIMTqWMqtH8q5EiZSks5gAicl2r8leQCYcYZf33xI1MX09QLZNbxlucn5HZXe2flm8CVUjDxU0RC4Xkm5Y2a7ib");
+
+        // TEST
+        bool result = (!(left > right));
 
         // VERIFY
         assert(result);

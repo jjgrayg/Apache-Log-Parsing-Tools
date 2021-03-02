@@ -22,7 +22,7 @@ int main ()
 
         // VERIFY
         assert(str    == '\0');
-        assert(result == 256);
+        assert(result == 255);
     }
 
 
