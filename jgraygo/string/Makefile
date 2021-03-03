@@ -109,22 +109,22 @@ test_%.o: string.hpp test_%.cpp
 #
 oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_ctor_default
-	# ./testoracle_equal 
-	# ./testoracle_ctor_char 
-	# ./testoracle_ctor_charArray
-	# ./testoracle_ctor_charArray_int 
-	# ./testoracle_ctor_int
-	# ./testoracle_ctor_copy 
-	# ./testoracle_assign
-	# ./testoracle_swap_assign
-	# ./testoracle_lessThan
-	# ./testoracle_concat
-	# ./testoracle_subscript 
-	# ./testoracle_len_cap 
-	# ./testoracle_input 	
-	# ./testoracle_substring
-	# ./testoracle_find_char 
-	# ./testoracle_find_string 
+	./testoracle_equal 
+	./testoracle_ctor_char 
+	./testoracle_ctor_charArray
+	./testoracle_ctor_charArray_int 
+	./testoracle_ctor_int
+	./testoracle_ctor_copy 
+	./testoracle_assign
+	./testoracle_swap_assign
+	./testoracle_lessThan
+	./testoracle_concat
+	./testoracle_subscript 
+	./testoracle_len_cap 
+	./testoracle_input 	
+	./testoracle_substring
+	./testoracle_find_char 
+	./testoracle_find_string 
 #	./testoracle_split
 
 ###############################################################
@@ -133,22 +133,22 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 #
 oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 	valgrind ./testoracle_ctor_default
-	# valgrind ./testoracle_equal 
-	# valgrind ./testoracle_ctor_char 
-	# valgrind ./testoracle_ctor_charArray
-	# valgrind ./testoracle_ctor_charArray_int 
-	# valgrind ./testoracle_ctor_int
-	# valgrind ./testoracle_ctor_copy 
-	# valgrind ./testoracle_assign
-	# valgrind ./testoracle_swap_assign
-	# valgrind ./testoracle_lessThan
-	# valgrind ./testoracle_concat
-	# valgrind ./testoracle_subscript 
-	# valgrind ./testoracle_len_cap 
-	# valgrind ./testoracle_input 	
-	# valgrind ./testoracle_substring
-	# valgrind ./testoracle_find_char 
-	# valgrind ./testoracle_find_string 
+	valgrind ./testoracle_equal 
+	valgrind ./testoracle_ctor_char 
+	valgrind ./testoracle_ctor_charArray
+	valgrind ./testoracle_ctor_charArray_int 
+	valgrind ./testoracle_ctor_int
+	valgrind ./testoracle_ctor_copy 
+	valgrind ./testoracle_assign
+	valgrind ./testoracle_swap_assign
+	valgrind ./testoracle_lessThan
+	valgrind ./testoracle_concat
+	valgrind ./testoracle_subscript 
+	valgrind ./testoracle_len_cap 
+	valgrind ./testoracle_input 	
+	valgrind ./testoracle_substring
+	valgrind ./testoracle_find_char 
+	valgrind ./testoracle_find_string 
 #	valgrind ./testoracle_split
 
 
