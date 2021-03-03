@@ -20,6 +20,7 @@
 #define CS23001_STRING_INTERFACE_HPP
 
 #include <iostream>
+#include <vector>
 
 
 ////////////////////////////////////////////////////
@@ -47,16 +48,14 @@ public:
     String  substr        (int, int)                const;  //The sub-string from staring position to ending position
     int     findch        (int,  char)              const;  //Find location of charater starting at a position
     int     findstr       (int,  const String&)     const;  //Find location of str starting at a position
+    std::vector<String> split(char)                 const;  //Splits the string into multiple strings based on the input char
 
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
-    
-            String        (int);                            //String(10) - capacity 10, empty string
-            String        (int, const char[]);              //String(10, "abc") - capacity 10 with "abc"
 
 private:
-            //String        (int);                            //String(10) - capacity 10, empty string
-            //String        (int, const char[]);              //String(10, "abc") - capacity 10 with "abc"
+            String        (int);                            //String(10) - capacity 10, empty string
+            String        (int, const char[]);              //String(10, "abc") - capacity 10 with "abc"
     void    resetCapacity (int);                            //Resets capacity to N, keeps string intact 
 
     char    *str;                                           //Pointer to char[]
