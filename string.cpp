@@ -286,6 +286,7 @@ String String::substr(int start, int end) const
 //Finds the position of a char at or after the position in the argument. Returns -1 if the char is not present in the string
 int String::findch(int pos, char ch) const
 {
+	if (pos < 0) pos = 0;
 	for (int i = pos; i < stringSize; i++)
 	{
 		if (str[i] == ch) return i;
