@@ -42,7 +42,7 @@ MYM2   = test_ctor_copy test_swap_assign test_ctor_int test_ctor_charArray_int
 # Names of testoracle files 
 # Include or exclude ones you don't want to compile
 # For Milestone 3: testoracle_split 
-CTOR = testoracle_ctor_default testoracle_ctor_char  testoracle_ctor_charArray 
+CTOR = testoracle_ctor_default testoracle_ctor_char  testoracle_ctor_charArray
 REL  = testoracle_equal testoracle_lessThan 
 COPY = testoracle_ctor_copy testoracle_assign testoracle_ctor_charArray_int testoracle_ctor_int testoracle_swap_assign
 OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring 
@@ -72,7 +72,7 @@ string.o: string.hpp string.cpp
 #  the ones that you've named differently.
 #
 # For Milestone 2 add $(MYM2) to the end of the line below
-tests: $(MYCTOR) $(MYOPS) $(MYREL)
+tests: $(MYCTOR) $(MYOPS) $(MYREL) $(MYM2)
 	./test_default_ctor
 	./test_ctor_char 
 	./test_ctor_charArray
@@ -86,10 +86,10 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL)
 	./test_find_string 
 	./test_substring
 #Milestone 2
-#	./test_ctor_copy 
-#	./test_swap_assign 
-#	./test_ctor_int 
-#	./test_ctor_charArray_in
+	./test_ctor_copy 
+	./test_swap_assign 
+	./test_ctor_int 
+	./test_ctor_charArray_int
 
 
 ###############################################################
@@ -109,22 +109,22 @@ test_%.o: string.hpp test_%.cpp
 #
 oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_ctor_default
-	./testoracle_equal 
-	./testoracle_ctor_char 
-	./testoracle_ctor_charArray
-#	./testoracle_ctor_charArray_int 
-#	./testoracle_ctor_int
-	./testoracle_ctor_copy 
-	./testoracle_assign
-	./testoracle_swap_assign
-	./testoracle_lessThan
-	./testoracle_concat
-	./testoracle_subscript 
-	./testoracle_len_cap 
-	./testoracle_input 	
-	./testoracle_substring
-	./testoracle_find_char 
-	./testoracle_find_string 
+	# ./testoracle_equal 
+	# ./testoracle_ctor_char 
+	# ./testoracle_ctor_charArray
+	# ./testoracle_ctor_charArray_int 
+	# ./testoracle_ctor_int
+	# ./testoracle_ctor_copy 
+	# ./testoracle_assign
+	# ./testoracle_swap_assign
+	# ./testoracle_lessThan
+	# ./testoracle_concat
+	# ./testoracle_subscript 
+	# ./testoracle_len_cap 
+	# ./testoracle_input 	
+	# ./testoracle_substring
+	# ./testoracle_find_char 
+	# ./testoracle_find_string 
 #	./testoracle_split
 
 ###############################################################
@@ -133,22 +133,22 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 #
 oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 	valgrind ./testoracle_ctor_default
-	valgrind ./testoracle_equal 
-	valgrind ./testoracle_ctor_char 
-	valgrind ./testoracle_ctor_charArray
-	valgrind ./testoracle_ctor_charArray_int 
-	valgrind ./testoracle_ctor_int
-	valgrind ./testoracle_ctor_copy 
-	valgrind ./testoracle_assign
-	valgrind ./testoracle_swap_assign
-	valgrind ./testoracle_lessThan
-	valgrind ./testoracle_concat
-	valgrind ./testoracle_subscript 
-	valgrind ./testoracle_len_cap 
-	valgrind ./testoracle_input 	
-	valgrind ./testoracle_substring
-	valgrind ./testoracle_find_char 
-	valgrind ./testoracle_find_string 
+	# valgrind ./testoracle_equal 
+	# valgrind ./testoracle_ctor_char 
+	# valgrind ./testoracle_ctor_charArray
+	# valgrind ./testoracle_ctor_charArray_int 
+	# valgrind ./testoracle_ctor_int
+	# valgrind ./testoracle_ctor_copy 
+	# valgrind ./testoracle_assign
+	# valgrind ./testoracle_swap_assign
+	# valgrind ./testoracle_lessThan
+	# valgrind ./testoracle_concat
+	# valgrind ./testoracle_subscript 
+	# valgrind ./testoracle_len_cap 
+	# valgrind ./testoracle_input 	
+	# valgrind ./testoracle_substring
+	# valgrind ./testoracle_find_char 
+	# valgrind ./testoracle_find_string 
 #	valgrind ./testoracle_split
 
 
@@ -216,7 +216,7 @@ testM1_%.o: string.hpp $(M1PATH)testM1_%.cpp
 #
 clean:
 	rm -f *.o
-	rm -f $(MYCTOR) $(MYREL) $(MYOPS)
+	rm -f $(MYCTOR) $(MYREL) $(MYOPS) $(MYM2)
 	rm -f $(M1CTOR) $(M1REL) $(M1OPS)
 	rm -f testM1_*
 	rm -f $(CTOR) $(REL) $(COPY) $(OPS)
