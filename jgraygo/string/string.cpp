@@ -319,3 +319,31 @@ int String::findstr(int pos, const String& string) const
 	return -1;
 
 }
+
+//Splits the String into multiple Strings based on the input character and
+//places them into a vector (WIP)
+std::vector<String> String::split(char det) const
+{
+	String temp;
+	bool working = true;
+	std::vector<String> result;
+	int begin = -1;
+	int end = findch(begin + 1, det);
+	while (working)
+	{
+		if (end == (begin + 1)) end = end + 1;
+		temp = substr(begin + 1, end - 1);
+		if (begin == -1 && end == -1) temp = str;
+		if (temp == det) temp = '\0';
+		result.push_back(temp);
+		begin = findch(end - 1, det);
+		if (begin == -1) break;
+		end = findch(begin + 1, det);
+		if (end == -1)
+		{
+			end = capacity();
+		}
+	}
+
+	return result;
+}
