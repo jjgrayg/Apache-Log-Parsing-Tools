@@ -13,27 +13,27 @@ int main ()
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str;
+        String str;
 
         // TEST
-        String result = str.substr(0, 0);
+        //String result = str.substr(0, 0);
 
         // VERIFY
-        assert(str    == "\0");
-        assert(result == "\0");
+        assert(str.substr(0, 0)    == "\0");
+        //assert(result == "\0");
     }
 
     {
         //------------------------------------------------------
         // SETUP FIXTURE
-        String  str("X");
+        String str("X");
 
         // TEST
-        String result = str.substr(0, 0);
+        //String result = str.substr(0, 0);
 
         // VERIFY
-        assert(str    == "X");
-        assert(result == "X");
+        assert(str.substr(0,0)    == "X");
+        //assert(result == "X");
     }
 
     {
@@ -42,11 +42,11 @@ int main ()
         String  str("Waffles");
 
         // TEST
-        String result = str.substr(0, 2);
+        //String result = str.substr(0, 2);
 
         // VERIFY
-        assert(str    == "Waffles");
-        assert(result == "Waf");
+        assert(str.substr(0,2)    == "Waf");
+        //assert(result == "Waf");
     }
 
     {
@@ -55,11 +55,11 @@ int main ()
         String  str("Jarod Graygo");
 
         // TEST
-        String result = str.substr(2, 8);
+        //String result = str.substr(2, 8);
 
         // VERIFY
-        assert(str    == "Jarod Graygo");
-        assert(result == "rod Gra");
+        assert(str.substr(2,8)    == "rod Gra");
+        //assert(result == "rod Gra");
     }
 
     {
@@ -68,11 +68,11 @@ int main ()
         String  str("This is a test for substr");
 
         // TEST
-        String result = str.substr(5,6);
+        //String result = str.substr(5,6);
 
         // VERIFY
-        assert(str    == "This is a test for substr");
-        assert(result == "is");
+        assert(str.substr(5,6)    == "is");
+        //assert(result == "is");
     }
 
     {
@@ -81,11 +81,11 @@ int main ()
         String  str("This is a test for substr");
 
         // TEST
-        String result = str.substr(5,7);
+        //String result = str.substr(5,7);
 
         // VERIFY
-        assert(str    == "This is a test for substr");
-        assert(result == "is ");
+        assert(str.substr(5,7)    == "is ");
+        //assert(result == "is ");
     }
 
     {
@@ -94,11 +94,11 @@ int main ()
         String  str("Include this whole string");
 
         // TEST
-        String result = str.substr(0, 24);
+        //String result = str.substr(0, 24);
 
         // VERIFY
-        assert(str    == "Include this whole string");
-        assert(result == "Include this whole string");
+        assert(str.substr(0,24)    == "Include this whole string");
+        //assert(result == "Include this whole string");
     }
 
     {
@@ -107,11 +107,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(1, 8);
+        //String result = str.substr(1, 8);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == "12345678");
+        assert(str.substr(1,8)    == "12345678");
+        //assert(result == "12345678");
     }
 
     {
@@ -120,11 +120,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(0, 0);
+        //String result = str.substr(0, 0);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == "0");
+        assert(str.substr(0,0)    == "0");
+        //assert(result == "0");
     }
 
     //Out-of-bounds tests
@@ -134,11 +134,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(1, 10);
+        //String result = str.substr(1, 10);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == "123456789");
+        assert(str.substr(1,10)    == "123456789");
+        //assert(result == "123456789");
     }
 
     {
@@ -147,11 +147,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(8, 1);
+        //String result = str.substr(8, 1);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == '\0');
+        assert(str.substr(8,1)    == "\0");
+        //assert(result == '\0');
     }
 
     {
@@ -160,11 +160,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(10, 12);
+        //String result = str.substr(10, 12);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == '\0');
+        assert(str.substr(10,12)    == "\0");
+        //assert(result == '\0');
     }
 
     {
@@ -173,11 +173,11 @@ int main ()
         String  str("0123456789");
 
         // TEST
-        String result = str.substr(9, 12);
+        //String result = str.substr(9, 12);
 
         // VERIFY
-        assert(str    == "0123456789");
-        assert(result == '9');
+        assert(str.substr(9,12)    == "9");
+        //assert(result == '9');
     }
 
     //Super long
@@ -187,11 +187,11 @@ int main ()
         String  str("7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
 
         // TEST
-        String result = str.substr(0, 254);
+        //String result = str.substr(0, 254);
 
         // VERIFY
-        assert(str    == "7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
-        assert(result == "7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
+        assert(str.substr(0,254)    == "7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
+        //assert(result == "7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
     }
 
     {
@@ -200,11 +200,11 @@ int main ()
         String  str("7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
 
         // TEST
-        String result = str.substr(254, 254);
+        //String result = str.substr(254, 254);
 
         // VERIFY
-        assert(str    == "7QcVOKkr4MQW3mxX69tuiuLZv1wibPjlOGeNsNcUA1wZLEzfyvB2oJFUDaKfuLxZ39Q986yZWT5FOH1dOeH1j3g6rhmUlQXzt5aaJROtwFDhB4zM6JTd8GW7x8lX5ErKDayzl0J06Qqk7iiZR6pXFQZzBh5N3uye7DgYwkCzwUHhNpDb6Kwp32hMP2rVkARCO9Dx1KgPzE1xQ90IKu0rAJD5INm81Vy0AbCM4QaqSnx958tmXRFP7Qb34JsZbRe");
-        assert(result == "e");
+        assert(str.substr(254,254)    == "e");
+        //assert(result == "e");
     }
 
 

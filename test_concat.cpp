@@ -93,9 +93,11 @@ int main ()
         String  right("9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");
 
         // TEST
+        std::cout << left << std::endl;
         String result = (left + right);
 
         // VERIFY
+        std::cout << left << std::endl;
         assert(result == "T2O0mRRXuZumw5fIrO9pZyKi9krICaSCdYvZddHCvdsBjO1iz6ymXiU32RaAHdbUo8k0A6tr8PgOd7wuUsJ8US5Hi8wrTGn7AK8S9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");
         assert(left   == "T2O0mRRXuZumw5fIrO9pZyKi9krICaSCdYvZddHCvdsBjO1iz6ymXiU32RaAHdbUo8k0A6tr8PgOd7wuUsJ8US5Hi8wrTGn7AK8S");
         assert(right  == "9KDT76dkckARJSztt752ylC5ZgGtprwMUFopD652iaplYJDCkVMWibretxJeUC0hwbI7IvpyADMyWV76XmHpCNRGiVpRVisp3kmG");

@@ -12,23 +12,70 @@
 //Initializes to an empty string
 String::String()
 {
-	for (int i = 0; i < STRING_SIZE; i++) str[i] = 0;
+	stringSize = 1;
+	str = new char[stringSize];
+	str[0] = 0;
+}
+
+String::String(int x)
+{
+	stringSize = x+1;
+	str = new char[stringSize];
+	for (int i = 0; i < stringSize; i++) str[i] = '\0';
 }
 
 //Char constructor for String
-String::String(char x) : String()
+String::String(char x) : String(1)
 {
-	str[0] = x;
+	if (x == 0)
+	{
+		resetCapacity(0);
+	}
+	else
+	{
+		str[0] = x;
+	}
 }
 
 //Char array constructor for String
-String::String(const char x[]) : String()
+String::String(const char x[])
 {
-	for (int i = 0; i < STRING_SIZE; i++)
+	int counter = 0;
+	while (x[counter] != 0) counter++;
+	stringSize = counter + 1;
+	str = new char[stringSize];
+	str[stringSize-1] = 0;
+
+	for (int i = 0; i < counter; i++)
 	{
 		if (x[i] == 0) break;
 		str[i] = x[i];
 	}
+}
+
+String::String(int N, const char x[]) : String(N)
+{
+	int counter = 0;
+	while (x[counter] != 0) counter++;
+	for (int i = 0; i < counter; i++)
+	{
+		str[i] = x[i];
+	}
+}
+
+String::String(const String& x)
+{
+	stringSize = x.stringSize;
+	str = new char[stringSize];
+	for (int i = 0; i < stringSize; i++)
+	{
+		str[i] = x.str[i];
+	}
+}
+
+String::~String()
+{
+	delete[] str;
 }
 
 //////////////////////////////////
@@ -39,11 +86,12 @@ String::String(const char x[]) : String()
 std::istream& operator>>(std::istream& in, String& rhs)
 {
 
-	for (int i = 0; i < STRING_SIZE; i++) rhs.str[i] = 0;
+	char temp[500];
 
 	if (!in.eof())
 	{
-		in >> rhs.str;
+		in >> temp;
+		rhs = String(temp);
 		return in;
 	}
 	else
@@ -51,10 +99,11 @@ std::istream& operator>>(std::istream& in, String& rhs)
 		return in;
 	}
 }
+
 //Output operator overload
 std::ostream& operator<<(std::ostream& out, const String& rhs)
 {
-	for (int i = 0; i < STRING_SIZE; i++)
+	for (int i = 0; i < rhs.stringSize; i++)
 	{
 		if (rhs.str[i] == 0) break;
 		out << rhs.str[i];
@@ -63,42 +112,49 @@ std::ostream& operator<<(std::ostream& out, const String& rhs)
 	return out;
 }
 
-//Accessor and Modifier for String
-char& String::operator[](int index) { return str[index]; }
+//Assignment operator for String
+String& String::operator=(const String rhs)
+{
+	if (str != rhs.str)
+	{
+		delete[] str;
+		stringSize = rhs.stringSize;
+		str = new char[stringSize];
+		for (int i = 0; i < stringSize; i++)
+		{
+			str[i] = rhs.str[i];
+		}
+	}
+	return *this;
+}
 
-//Simple Accessor for String
-char String::operator[](int index) const { return str[index]; }
+//Accessor/Modifier subscript overload
+char& String::operator[](int i) { return str[i]; }
 
-//Concatenation operator overloads
+//Simple accessor subscript overload
+char String::operator[](int i) const { return str[i]; }
+
+//Concatenation operators
 String String::operator+(const String& rhs) const
 {
-	int index = 0;
-	String temp;
-	for (int i = 0; i < STRING_SIZE; i++) temp[i] = this->str[i];
-	while (rhs[index] != 0)
+	int offset = 0;
+	String result((stringSize + rhs.stringSize - 1));
+	for (int i = 0; i < stringSize; i++)
 	{
-		temp[(length() + index)] = rhs[index];
-		index++;
+		result.str[i] = str[i];
+		offset = i;
 	}
+	for (int i = 0; i < rhs.stringSize; i++) { result.str[offset + i] = rhs.str[i]; }
 
-	return temp;
+	return result;
 }
 
-String operator+(const char lhs[], const String& rhs) 
-{
-	String lhsString = String(lhs);
-	return lhsString + rhs; 
-}
+String operator+(const char lhs[], const String& rhs) { return String(lhs) + rhs; }
+String operator+(char lhs, const String& rhs) { return String(lhs) + rhs; }
 
-String operator+(char lhs, const String& rhs) 
-{
-	String lhsString = String(lhs);
-	return lhsString + rhs; 
-}
-
-//Concatenation and assignment operator
-String& String::operator+=(const String& rhs)
-{
+//Concatenation and assignment operator for String
+String& String::operator+=(const String& rhs) 
+{ 
 	*this = *this + rhs;
 	return *this;
 }
@@ -106,20 +162,20 @@ String& String::operator+=(const String& rhs)
 //Equals operator overloads
 bool String::operator==(const String& rhs) const
 {
-	bool equal;
+	bool equal = true;
 	int index = 0;
 
-	do {
-		if (rhs[index] == str[index])
+	while (equal && (index < stringSize && index < rhs.stringSize)) {
+		if (rhs.str[index] == str[index])
 		{
 			equal = true;
 		}
-		else if (rhs[index] != str[index])
+		else if (rhs.str[index] != str[index])
 		{
 			equal = false;
 		}
 		index++;
-	} while (equal && index < STRING_SIZE);
+	}
 	return equal;
 }
 
@@ -144,7 +200,7 @@ bool String::operator<(const String& rhs) const
 		{
 			index++;
 		}
-	} while (index < STRING_SIZE);
+	} while (index < stringSize);
 
 	return false;
 }
@@ -178,8 +234,25 @@ bool operator!=(const String& lhs, const String& rhs) { return !(lhs == rhs); }
 // MEMBER FUNCTIONS
 //////////////////////////////////
 
+//Constant time swap for String
+void String::swap(String& rhs)
+{
+	int tStrSize = rhs.stringSize;
+	rhs.stringSize = stringSize;
+	stringSize = tStrSize;
+	char* temp = rhs.str;
+	rhs.str = str;
+	str = temp;
+}
+
 //Returns the capacity of String
-int String::capacity() const { return (STRING_SIZE - 1); }
+int String::capacity() const { return (stringSize - 1); }
+
+//Resets the capacity of a String while keeping it in tact
+void String::resetCapacity(int x)
+{
+	*this = String(x, str);
+}
 
 //Returns the number of characters in the string
 int String::length() const
@@ -190,13 +263,13 @@ int String::length() const
 }
 
 //Returns the substring from the first arg to the second arg inclusive
-String String::substr(int start, int end)
+String String::substr(int start, int end) const
 {
-	String result;
 	int index = 0;
-	if (start > end) return result;
+	if (start > end) return String('\0');
 	if (end >= length()) end = (length() - 1);
-	if (start >= length()) return result;
+	if (start >= length()) return String('\0'); 
+	String result((end - start + 1));
 	for (int i = start; i <= end; i++)
 	{
 		result.str[index] = str[i];
@@ -206,9 +279,9 @@ String String::substr(int start, int end)
 }
 
 //Finds the position of a char at or after the position in the argument. Returns -1 if the char is not present in the string
-int String::findch(int pos, char ch)
+int String::findch(int pos, char ch) const
 {
-	for (int i = pos; i < STRING_SIZE; i++)
+	for (int i = pos; i < stringSize; i++)
 	{
 		if (str[i] == ch) return i;
 	}
@@ -219,17 +292,18 @@ int String::findch(int pos, char ch)
 
 //Finds the position of a string at or after the position in the argument and returns the position where it starts
 //Returns -1 if the string is not present
-int String::findstr(int pos, const String& string)
+int String::findstr(int pos, const String& string) const
 {
 
 	bool isPresent = false;
 
-	for (int i = pos; i < STRING_SIZE; i++)
+	for (int i = pos; i < stringSize; i++)
 	{
 		if (str[i] == string[0])
 		{
 			for (int j = 0; j < string.length(); j++)
 			{
+				if ((i + j) >= stringSize) break;
 				if (str[i + j] != string[j]) isPresent = false;
 				else isPresent = true;
 				if (isPresent && j == (string.length() - 1)) return i;
