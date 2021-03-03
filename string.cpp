@@ -17,6 +17,7 @@ String::String()
 	str[0] = 0;
 }
 
+//Initializes to an empty string with capacity of x
 String::String(int x)
 {
 	stringSize = x+1;
@@ -53,6 +54,8 @@ String::String(const char x[])
 	}
 }
 
+//Initializes to a string containing char array x and
+//a capacity of N
 String::String(int N, const char x[]) : String(N)
 {
 	int counter = 0;
@@ -63,6 +66,7 @@ String::String(int N, const char x[]) : String(N)
 	}
 }
 
+//Copy constructor for string
 String::String(const String& x)
 {
 	stringSize = x.stringSize;
@@ -73,6 +77,7 @@ String::String(const String& x)
 	}
 }
 
+//Destructor for string
 String::~String()
 {
 	delete[] str;
