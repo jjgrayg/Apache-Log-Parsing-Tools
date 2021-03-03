@@ -322,7 +322,7 @@ int String::findstr(int pos, const String& string) const
 }
 
 //Splits the String into multiple Strings based on the input character and
-//places them into a vector (WIP)
+//places them into a vector
 std::vector<String> String::split(char det) const
 {
 	String temp;
