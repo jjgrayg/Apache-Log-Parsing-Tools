@@ -143,7 +143,7 @@ char String::operator[](int i) const { return str[i]; }
 String String::operator+(const String& rhs) const
 {
 	int offset = 0;
-	String result((stringSize + rhs.stringSize - 1));
+	String result((stringSize + rhs.stringSize - 2));
 	for (int i = 0; i < stringSize; i++)
 	{
 		result.str[i] = str[i];
