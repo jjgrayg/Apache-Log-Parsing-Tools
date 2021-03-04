@@ -21,9 +21,11 @@
 #include "string.hpp" 
 
 ////////////////////////////////////////////////////////////
-class Date { 
+class Date {
 public:
-            Date() {};
+    Date() {};
+    Date(String day, String month, int year) : day(day), month(month), year(year) {};
+    friend std::ostream& operator<<(std::ostream&, const Date);
 private:
     String  day, month;
     int     year;
@@ -31,9 +33,11 @@ private:
 
 ////////////////////////////////////////////////////////////
 class Time {
-  public:
-            Time() {};
-  private:
+public:
+    Time() {};
+    Time(int hour, int minute, int second) : hour(hour), minute(minute), second(second) {};
+    friend std::ostream& operator<<(std::ostream&, const Time);
+private:
     int     hour, minute, second;
 };
 
@@ -41,9 +45,13 @@ class Time {
 ////////////////////////////////////////////////////////////
 class LogEntry {
 public:
-            LogEntry() {};
-            LogEntry(String);
+    LogEntry() {};
+    LogEntry(String); //Parsing complete assignment may need work
     friend  std::ostream& operator<<(std::ostream&, const LogEntry&);
+    String get_host() const;
+    int get_bytes() const;
+
+    bool valid;
 
 private:
     String  host;
@@ -60,10 +68,11 @@ private:
 // Free functions
 //
 
-std::vector<LogEntry>   parse       (std::istream&);
-void                    output_all  (std::ostream&, const std::vector<LogEntry> &);
-void                    by_host     (std::ostream&, const std::vector<LogEntry> &);
-int                     byte_count  (const std::vector<LogEntry>&);
+std::vector<LogEntry>   parse(std::istream&);
+void                    output_all(std::ostream&, const std::vector<LogEntry>&);
+void                    by_host(std::ostream&, const std::vector<LogEntry>&);
+int                     byte_count(const std::vector<LogEntry>&);
+
+int                     string_to_int(String); //
 
 #endif
- 
