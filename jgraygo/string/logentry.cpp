@@ -22,7 +22,7 @@
 // ENSURES: 
 //
 LogEntry::LogEntry(String s) {
-    // ...
+    
     std::vector<String> vec = s.split(' ');
     
 }
