@@ -114,7 +114,7 @@ std::ostream& operator<<(std::ostream& out, const LogEntry& logEntry)
 
     Date date = logEntry.date;
     Time time = logEntry.time;
-    out << logEntry.host + ' ' << date << ' ' << time << ' ' + logEntry.request + ' ' + logEntry.status + ' ' << logEntry.number_of_bytes << '\n';
+    out << logEntry.host + ' ' + '-' + ' ' + '-' + ' '  + '[' << date << ':' << time << ']' << ' ' + logEntry.request + ' ' + logEntry.status + ' ' << logEntry.number_of_bytes << '\n';
 
     return out;
 }
@@ -138,11 +138,20 @@ std::ostream& operator<<(std::ostream& out, const Time time)
 {
     if (time.minute < 10) 
     {
-        out << time.hour << ":0" << time.minute << ':' << time.second;
+        out << time.hour << ":0" << time.minute;
     }
     else
     {
-        out << time.hour << ":" << time.minute << ':' << time.second;
+        out << time.hour << ":" << time.minute;
+    }
+
+    if (time.second < 10)
+    {
+        out << ":0" << time.second;
+    }
+    else
+    {
+        out << ":" << time.second;
     }
 
     return out;
