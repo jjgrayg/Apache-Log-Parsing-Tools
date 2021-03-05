@@ -6,8 +6,8 @@
 // File:        logentry.hpp 
 //       
 // Version:     1.0
-// Date:        
-// Author:      
+// Date:        3/4/2021
+// Author:      Jarod Graygo
 //
 // Description: Class definition for a log entry.
 //
