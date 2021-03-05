@@ -3,8 +3,8 @@
 // File:        logentry.cpp  
 //       
 // Version:     1.0
-// Date:        
-// Author:      
+// Date:        3/4/2021
+// Author:      Jarod Graygo
 //
 // Description: Class implementation for a log entry.
 //
@@ -158,8 +158,8 @@ std::ostream& operator<<(std::ostream& out, const Time time)
 }
 
 ////////////////////////////////////////////////////////// 
-// REQUIRES:  
-// ENSURES: 
+// REQUIRES: A valid istream  
+// ENSURES: A vector containing all LogEntries is created
 //
 std::vector<LogEntry> parse(std::istream& in) {
     std::vector<LogEntry> result;
@@ -180,8 +180,8 @@ std::vector<LogEntry> parse(std::istream& in) {
 }
 
 ////////////////////////////////////////////////////////// 
-// REQUIRES:  
-// ENSURES: 
+// REQUIRES: A valid ostream and vector of LogEntrys
+// ENSURES: All LogEntrys in the argued vector are correctly printed to the console
 //
 void output_all(std::ostream& out, const std::vector<LogEntry>& logVec) {
     int logSize = logVec.size();
@@ -189,16 +189,16 @@ void output_all(std::ostream& out, const std::vector<LogEntry>& logVec) {
 }
 
 ////////////////////////////////////////////////////////// 
-// REQUIRES:  
-// ENSURES: 
+// REQUIRES: A valid ostream and vector of LogEntrys
+// ENSURES: Every host present in the argued vector is printed onto a separate line
 //
 void by_host(std::ostream& out, const std::vector<LogEntry>& logVec) {
     for (size_t i = 0; i < logVec.size(); i++) out << logVec[i].get_host() << '\n';
 }
 
 ////////////////////////////////////////////////////////// 
-// REQUIRES:  
-// ENSURES: 
+// REQUIRES: A vector of LogEntrys
+// ENSURES: The total number of bytes accessed in the argued vector is returned
 //
 int byte_count(const std::vector<LogEntry>& logVec) {
     int totBytes = 0;
